@@ -5,7 +5,7 @@ import { router } from "./router/router";
 export const ProfessionalApp = () => {
   return (
     <>
-      <div className="bg-gradient">
+      <div className="">
         <RouterProvider router={router} />,
       </div>
     </>
