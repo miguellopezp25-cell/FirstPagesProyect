@@ -12,6 +12,7 @@ type AuthStatus = "checking" | "Auth" | "no-Auth";
 interface UserContexProps {
   //state of user
   auth: AuthStatus;
+  isAuth: boolean;
   user: User | null;
 
   //metods
@@ -56,7 +57,15 @@ export const UserContexProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ auth: authStatus, user, loging, logout }}>
+    <UserContext.Provider
+      value={{
+        auth: authStatus,
+        isAuth: authStatus === "Auth",
+        user,
+        loging,
+        logout,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
